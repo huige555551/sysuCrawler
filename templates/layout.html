@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    {% block head %}
+                <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+        <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+        <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js" type="text/javascript"></script>
+
+        <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">第三方教务系统</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/score" id="score">分数</a></li>
+                <li id="lesson"><a href="/lesson">我的课程</a></li>
+                <li id="stdInfo"><a href="/stdInfo">我的信息</a></li>
+                <li id="selectLesson"><a href="/selectLesson">我的选课</a></li>
+                <li><a href="/logout">退出</a></li>
+                <li>{% if username %}
+                    <a>欢迎 {{ username }}</a>
+                {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div id="content" class="container"></div>
+<div id="footer">
+    {% block footer %}
+        &copy; Copyright 2010 by 刘继辉.
+    {% endblock %}
+</div>
+</body>
